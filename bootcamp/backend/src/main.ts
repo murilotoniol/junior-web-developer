@@ -3,8 +3,8 @@ import 'express-async-errors';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-import { AppModule } from './app.module.ts';
-import { errorHandler } from './shared/filters/http-exception.filter.ts';
+import { AppModule } from './app.module';
+import { errorHandler } from './shared/filters/http-exception.filter';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './config/swagger.config';
 

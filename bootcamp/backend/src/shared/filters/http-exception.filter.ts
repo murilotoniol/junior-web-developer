@@ -21,14 +21,15 @@ export function errorHandler(
 
   // Erros de validação do Zod
   if (error instanceof ZodError) {
+    const zodError = error as any;
     res.status(400).json({
       error: true,
       code: 'E1',
       message: 'Informe os campos obrigatórios corretamente.',
-      details: error.errors.map((err) => ({
-        field: err.path.join('.'),
+      details: zodError.issues?.map((err: any) => ({
+        field: err.path?.join('.') || 'unknown',
         message: err.message,
-      })),
+      })) || [],
       timestamp: new Date().toISOString(),
     });
     return;
