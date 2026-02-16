@@ -1,0 +1,158 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ParticipantStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ActivityVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  cpf       String   @unique
+  password  String
+  avatar    String?  @default("default-avatar.png")
+  xp        Int      @default(0)
+  level     Int      @default(1)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relações
+  preferences         UserPreference[]
+  achievements        UserAchievement[]
+  createdActivities   Activity[]              @relation("ActivityCreator")
+  activityParticipant ActivityParticipant[]
+
+  @@map("users")
+}
+
+model Preference {
+  id   String @id @default(uuid())
+  name String @unique
+
+  // Relações
+  users UserPreference[]
+  types ActivityType[]
+
+  @@map("preferences")
+}
+
+model UserPreference {
+  userId       String
+  preferenceId String
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  preference Preference @relation(fields: [preferenceId], references: [id], onDelete: Cascade)
+
+  @@id([userId, preferenceId])
+  @@map("user_preferences")
+}
+
+model Achievement {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  description String
+  icon        String?
+
+  // Relações
+  users UserAchievement[]
+
+  @@map("achievements")
+}
+
+model UserAchievement {
+  userId        String
+  achievementId String
+  unlockedAt    DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@id([userId, achievementId])
+  @@map("user_achievements")
+}
+
+model ActivityType {
+  id           String @id @default(uuid())
+  name         String @unique
+  preferenceId String
+
+  preference Preference @relation(fields: [preferenceId], references: [id])
+
+  // Relações
+  activities Activity[]
+
+  @@map("activity_types")
+}
+
+model Activity {
+  id                String             @id @default(uuid())
+  title             String
+  description       String
+  image             String?
+  confirmationCode  String             @unique
+  scheduledDate     DateTime
+  completedAt       DateTime?
+  visibility        ActivityVisibility @default(PUBLIC)
+  isDeleted         Boolean            @default(false)
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  // Relações
+  typeId    String
+  type      ActivityType @relation(fields: [typeId], references: [id])
+  creatorId String
+  creator   User         @relation("ActivityCreator", fields: [creatorId], references: [id])
+
+  address      ActivityAddress?
+  participants ActivityParticipant[]
+
+  @@map("activities")
+}
+
+model ActivityAddress {
+  id         String @id @default(uuid())
+  activityId String @unique
+  latitude   Float
+  longitude  Float
+
+  activity Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@map("activity_addresses")
+}
+
+model ActivityParticipant {
+  id              String            @id @default(uuid())
+  activityId      String
+  userId          String
+  status          ParticipantStatus @default(PENDING)
+  hasCheckedIn    Boolean           @default(false)
+  checkedInAt     DateTime?
+  subscribedAt    DateTime          @default(now())
+
+  activity Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([activityId, userId])
+  @@map("activity_participants")
+}
