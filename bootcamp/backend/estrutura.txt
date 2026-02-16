@@ -1,0 +1,133 @@
+project-root/
+│
+├── src/
+│   ├── config/                    # Configurações
+│   │   ├── database.config.ts
+│   │   ├── jwt.config.ts
+│   │   ├── localstack.config.ts
+│   │   └── swagger.config.ts
+│   │
+│   ├── modules/                   # Módulos da aplicação
+│   │   │
+│   │   ├── auth/                  # Módulo de Autenticação
+│   │   │   ├── controllers/
+│   │   │   │   └── auth.controller.ts
+│   │   │   ├── services/
+│   │   │   │   └── auth.service.ts
+│   │   │   ├── dtos/
+│   │   │   │   ├── register.dto.ts
+│   │   │   │   └── login.dto.ts
+│   │   │   ├── guards/
+│   │   │   │   └── jwt-auth.guard.ts
+│   │   │   ├── strategies/
+│   │   │   │   └── jwt.strategy.ts
+│   │   │   └── auth.module.ts
+│   │   │
+│   │   ├── users/                 # Módulo de Usuários
+│   │   │   ├── controllers/
+│   │   │   │   └── users.controller.ts
+│   │   │   ├── services/
+│   │   │   │   ├── users.service.ts
+│   │   │   │   ├── xp.service.ts
+│   │   │   │   └── achievements.service.ts
+│   │   │   ├── entities/
+│   │   │   │   ├── user.entity.ts
+│   │   │   │   ├── achievement.entity.ts
+│   │   │   │   ├── user-achievement.entity.ts
+│   │   │   │   └── preference.entity.ts
+│   │   │   ├── dtos/
+│   │   │   │   ├── update-user.dto.ts
+│   │   │   │   ├── define-preferences.dto.ts
+│   │   │   │   └── user-response.dto.ts
+│   │   │   ├── repositories/
+│   │   │   │   └── user.repository.ts
+│   │   │   └── users.module.ts
+│   │   │
+│   │   ├── activities/            # Módulo de Atividades
+│   │   │   ├── controllers/
+│   │   │   │   └── activities.controller.ts
+│   │   │   ├── services/
+│   │   │   │   ├── activities.service.ts
+│   │   │   │   ├── subscriptions.service.ts
+│   │   │   │   └── check-in.service.ts
+│   │   │   ├── entities/
+│   │   │   │   ├── activity.entity.ts
+│   │   │   │   ├── activity-type.entity.ts
+│   │   │   │   ├── activity-participant.entity.ts
+│   │   │   │   └── activity-address.entity.ts
+│   │   │   ├── dtos/
+│   │   │   │   ├── create-activity.dto.ts
+│   │   │   │   ├── update-activity.dto.ts
+│   │   │   │   ├── activity-query.dto.ts
+│   │   │   │   └── check-in.dto.ts
+│   │   │   ├── repositories/
+│   │   │   │   └── activity.repository.ts
+│   │   │   └── activities.module.ts
+│   │   │
+│   │   └── storage/               # Módulo de Armazenamento
+│   │       ├── services/
+│   │       │   └── storage.service.ts
+│   │       └── storage.module.ts
+│   │
+│   ├── shared/                    # Recursos compartilhados
+│   │   ├── decorators/
+│   │   │   ├── current-user.decorator.ts
+│   │   │   └── roles.decorator.ts
+│   │   ├── filters/
+│   │   │   └── http-exception.filter.ts
+│   │   ├── interceptors/
+│   │   │   └── transform.interceptor.ts
+│   │   ├── pipes/
+│   │   │   └── validation.pipe.ts
+│   │   ├── exceptions/
+│   │   │   ├── business.exception.ts
+│   │   │   └── error-codes.enum.ts
+│   │   ├── utils/
+│   │   │   ├── password.util.ts
+│   │   │   ├── code-generator.util.ts
+│   │   │   └── pagination.util.ts
+│   │   └── types/
+│   │       └── pagination.types.ts
+│   │
+│   ├── database/                  # Database
+│   │   ├── migrations/
+│   │   ├── seeds/
+│   │   └── database.module.ts
+│   │
+│   ├── app.module.ts              # Módulo principal
+│   └── main.ts                    # Entry point
+│
+├── test/                          # Testes
+│   ├── unit/
+│   │   ├── auth/
+│   │   │   ├── auth.controller.spec.ts
+│   │   │   └── auth.service.spec.ts
+│   │   ├── users/
+│   │   │   ├── users.controller.spec.ts
+│   │   │   ├── users.service.spec.ts
+│   │   │   ├── xp.service.spec.ts
+│   │   │   └── achievements.service.spec.ts
+│   │   └── activities/
+│   │       ├── activities.controller.spec.ts
+│   │       ├── activities.service.spec.ts
+│   │       ├── subscriptions.service.spec.ts
+│   │       └── check-in.service.spec.ts
+│   │
+│   ├── integration/               # Testes de integração (opcional)
+│   └── setup.ts
+│
+├── docker/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   └── localstack/
+│       └── init-s3.sh
+│
+├── docs/
+│   └── swagger/                   # Documentação adicional
+│
+├── .env.example
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── jest.config.js
+└── README.md
