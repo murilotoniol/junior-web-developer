@@ -44,3 +44,5 @@ const usuario:Usuario = {
 }
 
 // Parameters - extrai tipos dos parâmetros
+function login(email: string, senha:string) {}
+type LoginParams = Parameters<typeof login> // [string, string]
