@@ -24,7 +24,23 @@ type TodoPreview = Pick<ToDo, "titulo" | "completo">;
 type TodoNoDescricao = Omit<ToDo, "descricao">
 
 // record - cria objeto com chaves e valores tipados
+type Paginas = "home" | "sobre" | "contato"
+type PaginaInfo = Record<Paginas, {titulo:string, url:string}>
+const paginas:PaginaInfo = {
+    home: {titulo: "aaa", url:"aa"},
+    sobre: {titulo: "bbb", url:"bb"},
+    contato: {titulo: "ccc", url:"cc"}
+}
 
 // returntype - extrai tipo de retorno de função
+function criarUsuario(){
+    return {nome: 'Joao', idade: 30}
+}
+
+type Usuario = ReturnType<typeof criarUsuario>
+const usuario:Usuario = {
+    nome:"maria",
+    idade:25
+}
 
 // Parameters - extrai tipos dos parâmetros
