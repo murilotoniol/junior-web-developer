@@ -12,8 +12,8 @@ Este repositório serve como um espaço de aprendizado para:
 
 ## 🛠️ Tecnologias
 
-- HTML, CSS, JavaScript, TypeScript
-- Node.js, Express.js, React 
+- HTML, CSS, JavaScript, TypeScript, Java
+- Node.js, Express.js, React, Spring
 
 ## 📖 Objetivos de Aprendizado
 
@@ -24,3 +24,4 @@ Este repositório serve como um espaço de aprendizado para:
 ---
 
 *Última atualização: [data]*
+
