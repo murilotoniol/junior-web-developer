@@ -1,5 +1,6 @@
 package exercicioProdutos;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -15,17 +16,17 @@ public class Main {
         System.out.print("Quantity in stock: ");
         product.quantity = sc.nextInt();
 
-        product.printProduto();
+        System.out.println(product);
 
         System.out.print("Enter the number of products to be added in stock: ");
         product.addProduct(sc.nextInt());
 
-        product.printProduto();
+        System.out.println(product);
 
         System.out.print("Enter the number of products to be removed from stock: ");
         product.removeProduct(sc.nextInt());
 
-        product.printProduto();
+        System.out.println(product);
 
         sc.close();
     }

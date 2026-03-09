@@ -6,7 +6,7 @@ public class Product {
     int quantity;
 
     public double totalValueInStock(){
-        return quantity;
+        return quantity * price;
     }
 
     public void addProduct(int quantity){
@@ -17,7 +17,14 @@ public class Product {
         this.quantity -= quantity;
     }
 
-    public void printProduto(){
-        System.out.println("Product data: "+name+", $: "+price+", "+quantity+" units, Total: "+(quantity * price));
+    public String toString(){
+        return "Product data: "
+                +name
+                +", $: "
+                +String.format("%.2f", price)
+                +", "
+                +quantity
+                +" units, Total: "
+                +String.format("%.2f", totalValueInStock());
     }
 }
