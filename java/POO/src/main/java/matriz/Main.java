@@ -28,7 +28,7 @@ public class Main {
 
         int diagonal[] = new int[n];
 
-        for (int i=0;i<matriz.length;i++){
+        for (int i=0;i<n;i++){
             System.out.println(matriz[i][i]);    // imprimir as diagonais
         }
 
