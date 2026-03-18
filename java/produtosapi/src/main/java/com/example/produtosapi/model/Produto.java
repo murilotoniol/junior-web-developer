@@ -3,9 +3,11 @@ package com.example.produtosapi.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 // POJO -> Plain Old Java Object
 @Entity
+@Table(name = "produto")
 public class Produto {
 
     @Id
