@@ -4,6 +4,7 @@ import com.example.produtosapi.model.Produto;
 import com.example.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -53,4 +54,10 @@ public class ProdutoController {
 
         return produtoRepository.save(existente);
     }
+
+    @GetMapping                     //usado para query url
+    public List<Produto> buscarNome(@RequestParam("nome") String nome){
+        return produtoRepository.findByNome(nome);
+    }
+
 }
