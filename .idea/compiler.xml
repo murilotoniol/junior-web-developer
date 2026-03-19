@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Estrutura-Spring" />
         <module name="POO" />
         <module name="Aula1" />
       </profile>
@@ -19,9 +20,14 @@
         <module name="produtosapi" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Estrutura-Spring" options="-parameters" />
+      <module name="demo" options="-parameters" />
       <module name="produtosapi" options="-parameters" />
     </option>
   </component>
