@@ -11,6 +11,4 @@ public class HondaCivic extends Carro{
         setMontadora(Montadora.HONDA);
         setMotor(new Motor());
     }
-
-
 }

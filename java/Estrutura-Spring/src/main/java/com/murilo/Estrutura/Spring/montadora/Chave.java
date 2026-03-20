@@ -1,6 +1,7 @@
 package com.murilo.Estrutura.Spring.montadora;
 
 public class Chave {
+
     private Montadora montadora;
     private String tipo;
 
