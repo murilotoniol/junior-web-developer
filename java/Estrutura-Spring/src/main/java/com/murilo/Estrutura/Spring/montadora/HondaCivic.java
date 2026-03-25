@@ -9,6 +9,5 @@ public class HondaCivic extends Carro{
         setModelo("Civic");
         setCor(Color.black);
         setMontadora(Montadora.HONDA);
-        setMotor(new Motor());
     }
 }
