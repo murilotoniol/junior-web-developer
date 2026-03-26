@@ -1,6 +1,8 @@
 package com.murilo.Estrutura.Spring.todos;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("todos")
@@ -14,7 +16,12 @@ public class TodoController {
 
     @PostMapping
     public TodoEntity salvar(@RequestBody TodoEntity todo){
-        return this.todoService.salvar(todo);
+        try {
+            return this.todoService.salvar(todo);
+        }catch (RuntimeException e){
+            var mensagemErro = e.getMessage();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, mensagemErro);
+        }
     }
 
     @PutMapping("{id}")
