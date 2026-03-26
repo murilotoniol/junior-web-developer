@@ -14,4 +14,12 @@ public class TodoService {
     public TodoEntity salvar(TodoEntity novoTodo){
         return todoRepository.save(novoTodo);
     }
+
+    public TodoEntity atualizarStatus(TodoEntity todo){
+        return todoRepository.save(todo);
+    }
+
+    public TodoEntity buscarPorId(Integer id){
+        return todoRepository.findById(id).orElseThrow(() -> new RuntimeException("Nao existe Todo com esse id"));
+    }
 }
