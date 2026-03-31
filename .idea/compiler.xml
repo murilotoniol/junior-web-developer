@@ -10,6 +10,15 @@
         <module name="POO" />
         <module name="Aula1" />
       </profile>
+      <profile name="Annotation profile for libraryapi" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar" />
+        </processorPath>
+        <module name="libraryapi" />
+      </profile>
       <profile name="Annotation profile for Produtos API" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -28,6 +37,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Estrutura-Spring" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="libraryapi" options="-parameters" />
       <module name="produtosapi" options="-parameters" />
     </option>
   </component>
