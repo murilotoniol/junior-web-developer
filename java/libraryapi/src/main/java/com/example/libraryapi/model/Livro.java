@@ -1,9 +1,6 @@
 package com.example.libraryapi.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +15,7 @@ public class Livro {
 
     @Id
     @Column(name="id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.UUID)
     private UUID id;
 
     @Column(name="isbn", nullable = false, length=20)
@@ -32,9 +30,10 @@ public class Livro {
     @Column(name="genero", nullable = false, length=30)
     private String genero;
 
-    @Column(name="preco")
+    @Column(name="preco", precision = 18, scale = 2)
     private double preco;
 
-    @Column(name="id_autor", nullable = false)
-    private UUID idAutor;
+    @ManyToOne
+    @JoinColumn(name="id_autor", nullable = false)
+    private Autor idAutor;
 }

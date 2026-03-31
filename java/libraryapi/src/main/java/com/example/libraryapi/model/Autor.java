@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 //import javax.persistence.Entity
 
@@ -27,5 +28,6 @@ public class Autor {
     @Column(name="nacionalidade", length=50, nullable = false)
     private String nacionalidade;
 
-
+    @OneToMany(mappedBy="idAutor")
+    private List<Livro> livros;
 }
