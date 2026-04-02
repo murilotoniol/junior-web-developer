@@ -1,20 +1,21 @@
 package com.example.libraryapi.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name="livro")
-@Getter
-@Setter
+@Data //tras as anotations: getter, setter, toString, EqualsAndHashCode, RequiredArgsConstructor
 public class Livro {
 
     @Id
-    @Column(name="id", nullable = false)
+    @Column(name="id")
     @GeneratedValue(strategy=GenerationType.UUID)
     private UUID id;
 
@@ -27,11 +28,12 @@ public class Livro {
     @Column(name="data_publicacao", nullable = false)
     private Date dataPublicacao;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="genero", nullable = false, length=30)
-    private String genero;
+    private GeneroLivro genero;
 
     @Column(name="preco", precision = 18, scale = 2)
-    private double preco;
+    private BigDecimal preco;
 
     @ManyToOne
     @JoinColumn(name="id_autor", nullable = false)
