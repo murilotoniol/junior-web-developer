@@ -1,4 +1,7 @@
 {
     "vscode-pets.petSize": "medium",
-    "vscode-pets.theme": "autumn"
+    "vscode-pets.theme": "autumn",
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.compile.nullAnalysis.mode": "disabled",
+    "maven.view": "flat"
 }

@@ -1,0 +1,1 @@
+Testando criação de projeto novo com IA
