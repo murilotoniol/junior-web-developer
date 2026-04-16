@@ -1,63 +1,52 @@
 package com.example.produtosapi.controller;
 
 import com.example.produtosapi.model.Produto;
-import com.example.produtosapi.repository.ProdutoRepository;
+import com.example.produtosapi.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("produtos")
 public class ProdutoController {
 
-    private ProdutoRepository produtoRepository;
+    private ProdutoService produtoService;
 
-    public ProdutoController(ProdutoRepository produtoRepository) { // construtor para injetar o repository do produto
-        this.produtoRepository = produtoRepository;
+    public ProdutoController(ProdutoService produtoService) {
+        this.produtoService = produtoService;
     }
 
     @PostMapping
     public Produto salvar(@RequestBody Produto produto){
-        System.out.println("Produto recebido: "+produto);
-
-        String id = UUID.randomUUID().toString();
-        produto.setId(id);
-
-        produtoRepository.save(produto);
-        return produto;
+        return produtoService.salvar(produto);
     }
 
     @GetMapping("/{id}")
     public Produto obterPorId(@PathVariable("id") String id){
-//        Optional<Produto> produto = produtoRepository.findById(id);    essa linha faz exatamente a mesma coisa da linha  38
-//        return produto.isPresent() ? produto.get() : null;
-
-        return produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        return produtoService.findById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deletarPorId(@PathVariable("id") String id){
-        produtoRepository.deleteById(id);
+        produtoService.deleteById(id);
     }
 
     @PutMapping("/{id}") // passar um ID, com esse ID vou procurar o produto e caso eu encontre eu tenho que sobreescrever as info dele com as novas passada na URL
     public Produto atualizar(@PathVariable("id") String id,
                              @RequestBody Produto produto){
 
-        Produto existente = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto nao encontrado"));
+        Produto existente = produtoService.findById(id);
 
         existente.setNome(produto.getNome());
         existente.setDescricao(produto.getDescricao());
         existente.setPreco(produto.getPreco());
 
-        return produtoRepository.save(existente);
+        return produtoService.salvar(existente);
     }
 
     @GetMapping                     //usado para query url
     public List<Produto> buscarNome(@RequestParam("nome") String nome){
-        return produtoRepository.findByNome(nome);
+        return produtoService.buscarNome(nome);
     }
 
 }
