@@ -10,6 +10,7 @@
         <module name="Estrutura-Spring" />
         <module name="POO" />
         <module name="Aula1" />
+        <module name="bootcamp" />
       </profile>
       <profile name="Annotation profile for libraryapi" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -29,15 +30,23 @@
         </processorPath>
         <module name="produtosapi" />
       </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.44/503fd0b002dbb237fa4656cf4b8021666a8aebac/lombok-1.18.44.jar" />
+        </processorPath>
+        <module name="demo.test" />
+        <module name="demo.main" />
+      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="demo" target="21" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Estrutura-Spring" options="-parameters" />
+      <module name="bootcamp" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="demo.main" options="-parameters" />
+      <module name="demo.test" options="-parameters" />
       <module name="libraryapi" options="-parameters" />
       <module name="produtosapi" options="-parameters" />
     </option>
