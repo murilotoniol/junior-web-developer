@@ -1,18 +1,20 @@
 spring:
-datasource:
-    url: jdbc:postgresql://localhost:5432/bootcamp
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+ datasource:
+  url: jdbc:postgresql://localhost:5432/bootcamp
+  username: postgres
+  password: postgres
+  driver-class-name: org.postgresql.Driver
 
-  jpa:
-    database-plataform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        jdbc:
-          lab:
-            non_contextual_creation: true
-        format_sql: true
-        default_schema: public
+ jpa:
+  show-sql: true
+  hibernate:
+   ddl-auto: update
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    format_sql: true
+
+logging:
+ level:
+  org.hibernate.SQL: DEBUG
+  org.hibernate.tool.schema: DEBUG
