@@ -1,4 +1,4 @@
-package com.example.produtosapi.controller;
+package com.example.produtosapi.web;
 
 import com.example.produtosapi.model.Produto;
 import com.example.produtosapi.service.ProdutoService;
