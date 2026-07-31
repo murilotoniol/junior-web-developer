@@ -1,4 +1,4 @@
-package org.example;
+package triangle;
 
 public class Triangle {
     public double a;

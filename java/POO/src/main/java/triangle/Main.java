@@ -1,4 +1,4 @@
-package org.example;
+package triangle;
 
 import java.util.Locale;
 import java.util.Scanner;
