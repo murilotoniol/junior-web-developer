@@ -8,4 +8,8 @@ public class Department {
     }
 
     public Department(){}
+
+    public String getName() {
+        return name;
+    }
 }
