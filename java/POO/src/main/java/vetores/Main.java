@@ -32,14 +32,16 @@ public class Main{
 //    int y = (int)obj;
 //    System.out.println(y);
 
-    // vou usar aqui pra exemplo de for each (para cada)
+    // vou usar aqui pra exemplo de for each
     String[] nomes = new String[] {"Murilo", "Giovani", "Joao"};
 
     for (int i=0;i<nomes.length;i++){
-        System.out.println(nomes[i]);        // for percorrendo cada elemento do vetor nomes
+        System.out.println(nomes[i]);   // FOR NORMAL for percorrendo cada elemento do vetor nomes
     }
 
-    for (String nome : nomes){   // para cada objeto 'nome' do tipo String contido em 'nomes[]' faça:
+        System.out.println("========================");
+
+    for (String nome : nomes){   // FOR EACH para cada objeto 'nome' do tipo String contido em 'nomes[]' faça:
         System.out.println(nome);
     }
 
