@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Estrutura-Spring" />
-        <module name="POO" />
         <module name="Aula1" />
         <module name="bootcamp" />
+        <module name="guided-java" />
       </profile>
       <profile name="Annotation profile for libraryapi" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
