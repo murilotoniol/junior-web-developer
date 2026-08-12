@@ -10,7 +10,6 @@
         <module name="Estrutura-Spring" />
         <module name="Aula1" />
         <module name="bootcamp" />
-        <module name="guided-java" />
       </profile>
       <profile name="Annotation profile for libraryapi" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -41,6 +40,9 @@
         <module name="produtosapi" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="guided-java" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
