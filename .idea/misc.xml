@@ -4,17 +4,10 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/java/Aula1/pom.xml" />
-        <option value="$PROJECT_DIR$/java/POO/pom.xml" />
-        <option value="$PROJECT_DIR$/java/produtosapi/pom.xml" />
-        <option value="$PROJECT_DIR$/java/arquiteturaSpring/pom.xml" />
+        <option value="$PROJECT_DIR$/java/guided-java/pom.xml" />
         <option value="$PROJECT_DIR$/java/Estrutura-Spring/pom.xml" />
-        <option value="$PROJECT_DIR$/java/libraryapi/pom.xml" />
-        <option value="$PROJECT_DIR$/bootcamp/teste-ia/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" project-jdk-name="25" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" project-jdk-name="25" project-jdk-type="JavaSDK" />
 </project>
