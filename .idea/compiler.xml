@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Estrutura-Spring" />
         <module name="POO" />
+        <module name="Aula1" />
       </profile>
     </annotationProcessing>
   </component>
